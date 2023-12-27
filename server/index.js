@@ -16,6 +16,8 @@ mongoose.connect(process.env.MONGO_URI).then(() => {
 
 const app = express();
 
+app.use(express.json());
+
 app.use('/api/auth', authRoute)
 app.use('/api/user', usersRoute)
 app.use('/api/rooms', roomsRoute)
