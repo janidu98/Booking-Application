@@ -36,13 +36,11 @@ export const login = async(req, res, next) => {
         const token = jwt.sign({id: validUser._id, isAdming: validUser.isAdmin}, process.env.JWT_SECRET);
 
         const {password: pass, isAdmin, ...rest} = validUser._doc;
-<<<<<<< HEAD
         res.cookie('access_token', token, {
             httpOnly: true,
         }).status(200).json({...rest});
-=======
+
         res.status(200).json({...rest});
->>>>>>> ac095dedb12b5330f0e31e1efee709fc272630e0
 
     } catch (error) {
         next(error);
