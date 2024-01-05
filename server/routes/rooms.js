@@ -4,10 +4,15 @@ import { createRoom, deleteRoom, getAllRooms, getRoom, updateRoom } from '../con
 
 const route = express.Router();
 
+//create a room
 route.post('/:hotelid', verifyAdmin, createRoom);
+//update a room
 route.put('/:id', verifyAdmin, updateRoom);
-route.delete('/:id', verifyAdmin, deleteRoom);
+//delete a room
+route.delete('/:id/:hotelid', verifyAdmin, deleteRoom);
+//get a room
 route.get('/:id', getRoom);
+//get all rooms
 route.get('/', getAllRooms);
 
 export default route;
