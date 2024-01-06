@@ -6,6 +6,7 @@ import roomsRoute from './routes/rooms.js';
 import hotelsRoute from './routes/hotels.js';
 import authRoute from './routes/auth.js';
 import cookieParser from 'cookie-parser';
+import cors from 'cors';
 
 dotenv.config();
 
@@ -17,6 +18,9 @@ mongoose.connect(process.env.MONGO_URI).then(() => {
 
 const app = express();
 
+app.use(cors({
+    origin: "http://localhost:5173"
+}))
 app.use(cookieParser());
 app.use(express.json());
 
